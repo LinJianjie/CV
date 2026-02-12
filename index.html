@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林建杰 - 简历</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1e40af;
+      --primary-light: #3b82f6;
+      --primary-dark: #1e3a8a;
+      --primary-bg: #eff6ff;
+      --bg: #fafbff;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --accent: #2563eb;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Navigation ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover, .nav-links a:focus {
+      color: var(--primary);
+      background: var(--primary-bg);
+      outline: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--text);
+    }
+
+    /* ---- Hero / Header ---- */
+    .hero {
+      padding: 120px 24px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--surface);
+      box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+    }
+
+    .hero-info h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .hero-info .subtitle {
+      font-size: 1.125rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .hero-info .tagline {
+      margin-top: 12px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 540px;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .hero-contact a,
+    .hero-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .hero-contact a:hover {
+      color: var(--primary);
+    }
+
+    .hero-contact svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ---- Section ---- */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .section-title .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .section-title .icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ---- Basic Info Grid ---- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .info-card .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .info-card .value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ---- Timeline ---- */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--primary-light);
+      z-index: 1;
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-bg);
+      padding: 2px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .timeline-location {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .timeline-list {
+      margin-top: 8px;
+      list-style: none;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 4px;
+    }
+
+    .timeline-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      opacity: 0.6;
+    }
+
+    /* ---- Projects ---- */
+    .project-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-date {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: 140px;
+    }
+
+    .project-name {
+      font-weight: 600;
+      font-size: 0.925rem;
+      color: var(--text);
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* ---- Scholarships ---- */
+    .scholarship-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .scholarship-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+    }
+
+    .scholarship-item .sch-date {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: 140px;
+    }
+
+    .scholarship-item .sch-name {
+      font-weight: 600;
+      font-size: 0.925rem;
+      color: var(--text);
+    }
+
+    .scholarship-item .sch-org {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- Skills ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+
+    .skill-card .skill-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      background: var(--border-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    /* ---- Languages ---- */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .lang-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .lang-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .lang-level {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .lang-detail {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ---- Publications ---- */
+    .publications-list {
+      display: grid;
+      gap: 12px;
+      counter-reset: pub;
+    }
+
+    .pub-item {
+      counter-increment: pub;
+      display: flex;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      transition: border-color 0.2s;
+    }
+
+    .pub-item:hover {
+      border-color: var(--primary-light);
+    }
+
+    .pub-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-bg);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pub-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .pub-authors strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-size: 0.825rem;
+      color: var(--primary);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    /* ---- Scroll Animations ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 20px 40px;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .hero-photo img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .hero-info h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero-contact {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 12px 24px 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px 14px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .section {
+        padding: 36px 20px;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .timeline-header {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .project-card {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .scholarship-item {
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-start;
+      }
+
+      .pub-item {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ---- Print ---- */
+    @media print {
+      nav { display: none; }
+      .hero { padding-top: 24px; }
+      .fade-in { opacity: 1; transform: none; }
+      body { font-size: 12px; }
+      .section { padding: 24px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">林建杰</div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#info">基本信息</a></li>
+      <li><a href="#education">教育背景</a></li>
+      <li><a href="#experience">工作经历</a></li>
+      <li><a href="#projects">项目经历</a></li>
+      <li><a href="#skills">专业能力</a></li>
+      <li><a href="#publications">学术文章</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-photo">
+      <img src="JianjieLin.jpg" alt="林建杰照片">
+    </div>
+    <div class="hero-info">
+      <h1>林建杰</h1>
+      <p class="subtitle">核心仿真产品负责人 / Dr. rer. nat.</p>
+      <p class="tagline">慕尼黑工业大学计算机 Dr. rer. nat.，专注机器人智能系统、运动与轨迹规划、计算机视觉、自动驾驶软件开发。现任梅赛德斯-奔驰核心仿真产品负责人（Product Owner of Core Simulation）。</p>
+      <div class="hero-contact">
+        <a href="mailto:jianjie.lin@outlook.com">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          jianjie.lin@outlook.com
+        </a>
+        <a href="tel:+4917684436814">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          (+49) 176 8443 6814
+        </a>
+        <span>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          Stuttgart, Germany
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Basic Info -->
+<section class="section" id="info">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+    </span>
+    基本信息
+  </h2>
+  <div class="info-grid fade-in">
+    <div class="info-card">
+      <div class="label">姓名</div>
+      <div class="value">林建杰</div>
+    </div>
+    <div class="info-card">
+      <div class="label">出生日期</div>
+      <div class="value">1991年05月15日</div>
+    </div>
+    <div class="info-card">
+      <div class="label">国籍</div>
+      <div class="value">中国</div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section class="section" id="education">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+    </span>
+    教育背景
+  </h2>
+  <div class="timeline fade-in">
+    <!-- PhD -->
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2017/06 - 2023/04</span>
+        <span class="timeline-title">Dr. rer. nat.</span>
+        <span class="timeline-org">慕尼黑工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Chair of Robotics, Artificial Intelligence and Real-time Systems 计算机学院，师从 Prof. Dr. Alois Knoll</div>
+      <ul class="timeline-list">
+        <li><strong>研究方向</strong>: 机器人智能系统, 运动和轨迹规划, 计算机视觉，数据驱动和优化抓取算法</li>
+      </ul>
+    </div>
+    <!-- Master -->
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2015/10 - 2017/03</span>
+        <span class="timeline-title">硕士</span>
+        <span class="timeline-org">慕尼黑工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Chair of Automatic Control Engineering 电气工程与信息技术学院，师从 Prof. Dr. Martin Buss</div>
+      <ul class="timeline-list">
+        <li><strong>研究方向</strong>: 自动化控制和机器人系统，<strong>毕业成绩</strong>: 1.2/1.0（德国最高等级，相当于 GPA 4.0/4.0）</li>
+        <li><strong>毕业论文</strong>: 使用移动小车对类摆式机器人操纵平台的振荡阻尼控制，<strong>论文成绩</strong>: 1.0/1.0（等效 GPA 4.0/4.0）</li>
+      </ul>
+    </div>
+    <!-- Bachelor -->
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2012/09 - 2015/09</span>
+        <span class="timeline-title">本科</span>
+        <span class="timeline-org">凯泽斯劳滕工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Chair of Automatic Control Engineering 电气工程与信息技术学院</div>
+      <ul class="timeline-list">
+        <li><strong>研究方向</strong>: 自动化和控制系统，<strong>毕业成绩</strong>: 1.3/1.0（相当于 GPA 3.9/4.0）</li>
+        <li><strong>毕业论文</strong>: 基于 MATLAB/Simulink 和 dSPACE 的汽车驾驶自适应巡航 (ACC) 系统的开发与实现，<strong>论文成绩</strong>: 1.0/1.0（等效 GPA 4.0/4.0）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Work Experience -->
+<section class="section" id="experience">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
+    </span>
+    工作经历
+  </h2>
+  <div class="timeline fade-in">
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2025/12 - 至今</span>
+        <span class="timeline-title">核心仿真产品负责人（Product Owner of Core Simulation）</span>
+        <span class="timeline-org">梅赛德斯-奔驰（德国总部）</span>
+      </div>
+      <div class="timeline-desc">Core Simulation 部门 | Digital Testing Platform 搭建</div>
+      <ul class="timeline-list">
+        <li>搭建 Digital Testing Platform，用于 SIL3 和 HIL4 验证 L2++ 及 L3 自动驾驶算法</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2023/10 - 2025/12</span>
+        <span class="timeline-title">高级软件工程师</span>
+        <span class="timeline-org">梅赛德斯-奔驰（德国总部）</span>
+      </div>
+      <div class="timeline-desc">车辆软件抽象部门（Vehicle Abstraction Layer） | 高阶辅助驾驶系统软件开发</div>
+      <ul class="timeline-list">
+        <li>车辆软件抽象架构（Vehicle Abstraction Layer）设计</li>
+        <li>自动驾驶人机交互界面与软件设计（L2/L2+/L2++/L3）</li>
+        <li>L2++ 车辆软件抽象层项目负责人，实现不同供应商通过统一接口对接梅赛德斯-奔驰操纵系统</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2022/04 - 2023/09</span>
+        <span class="timeline-title">博士后</span>
+        <span class="timeline-org">慕尼黑工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Chair of Robotics, AI and Real-time Systems, 计算机研究学院 | 机器人智能系统、自动驾驶轨迹规划、软件定义车辆架构</div>
+      <ul class="timeline-list">
+        <li>机器人系统与计算机视觉算法开发</li>
+        <li>软件定义车辆（Software Defined Vehicle）开发</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2021/06 - 2022/04</span>
+        <span class="timeline-title">研究员</span>
+        <span class="timeline-org">慕尼黑工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Chair of Robotics, AI and Real-time Systems, 计算机研究学院 | 机器人智能系统、运动与轨迹规划、计算机视觉</div>
+      <ul class="timeline-list">
+        <li>机器人系统与计算机视觉算法开发</li>
+        <li>软件定义车辆（Software Defined Vehicle）开发</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2017/06 - 2021/06</span>
+        <span class="timeline-title">研究员</span>
+        <span class="timeline-org">fortiss GmbH</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">Robotic and Machine Learning Group | 巴伐利亚州政府与慕尼黑工业大学联合研究所</div>
+      <ul class="timeline-list">
+        <li>开发基于高阶运动学约束的多航点轨迹优化算法</li>
+        <li>开发基于深度学习的 2D 图像与 3D 点云处理算法</li>
+        <li>开发基于数据驱动和深度学习的机器人抓取算法</li>
+        <li>开发百度 Apollo 无人驾驶汽车平台与 dSPACE 实时通讯接口</li>
+        <li>开发机器人直观编程（Robotic Intuitive Programming）</li>
+        <li>开发机器人与外部传感器 OPC-UA 实时接口</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2016/09 - 2017/03</span>
+        <span class="timeline-title">硕士毕业论文与实习</span>
+        <span class="timeline-org">德国航空航天中心（DLR）</span>
+        <span class="timeline-location">慕尼黑</span>
+      </div>
+      <div class="timeline-desc">机器人与机电一体化研究所（RMC），先进机器人系统分析与控制，导师 Prof. Christian Ott</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2016/03 - 2016/05</span>
+        <span class="timeline-title">硕士实习</span>
+        <span class="timeline-org">西门子总部</span>
+        <span class="timeline-location">慕尼黑，德国</span>
+      </div>
+      <div class="timeline-desc">企业技术、机器人与自动化控制</div>
+      <ul class="timeline-list">
+        <li>基于规划域定义语言（PDDL）的智能能源网络规划</li>
+        <li>基于传统搜索的任务规划算法</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2015/05 - 2016/03</span>
+        <span class="timeline-title">研究助理</span>
+        <span class="timeline-org">慕尼黑工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">控制系统研究所，实验助教</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2014/10 - 2015/03</span>
+        <span class="timeline-title">本科实习</span>
+        <span class="timeline-org">戴姆勒（现梅赛德斯-奔驰集团）</span>
+        <span class="timeline-location">斯图加特，德国</span>
+      </div>
+      <div class="timeline-desc">变速箱系统研发、计算及模拟</div>
+      <ul class="timeline-list">
+        <li>基于动态规划算法的新型混合动力变速箱仿真研究</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-date">2014/04 - 2014/08</span>
+        <span class="timeline-title">助教</span>
+        <span class="timeline-org">凯泽斯劳滕工业大学</span>
+        <span class="timeline-location">德国</span>
+      </div>
+      <div class="timeline-desc">数学系，高等数学 III 助教</div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776"/></svg>
+    </span>
+    学术与工业项目经历
+  </h2>
+  <div class="project-grid fade-in">
+    <div class="project-card">
+      <span class="project-date">2023/10 - 至今</span>
+      <div>
+        <div class="project-name">奔驰自动驾驶项目</div>
+        <div class="project-desc">L2/L2+/L2++ 高阶辅助驾驶系统开发（梅赛德斯奔驰-英伟达-自动驾驶项目）</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2022/10 - 2023/10</span>
+      <div>
+        <div class="project-name">CeCas 项目</div>
+        <div class="project-desc">欧盟中央汽车服务项目，聚焦智能车辆与车联网技术</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2021/05 - 2022/10</span>
+      <div>
+        <div class="project-name">Software Sandboxing Framework</div>
+        <div class="project-desc">面向安全关键汽车功能的"安全即服务"平台开发（慕尼黑华为创新实验室-工业项目）</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2021/05 - 2022/10</span>
+      <div>
+        <div class="project-name">Runtime Governor</div>
+        <div class="project-desc">开发安全关键汽车功能的运行时管理器（慕尼黑华为创新实验室-工业项目）</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2020/06 - 2023/11</span>
+      <div>
+        <div class="project-name">VOJEXT 项目</div>
+        <div class="project-desc">欧盟 H2020 项目，探索数字技术在制造与建筑领域的应用价值</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2018/01 - 2020/03</span>
+      <div>
+        <div class="project-name">数据骨干网项目</div>
+        <div class="project-desc">构建无系统中断连续生产的数据基础设施（巴伐利亚州经济事务部项目 StMWi Bayern）</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-date">2017/06 - 2018/06</span>
+      <div>
+        <div class="project-name">工业喷涂喷墨机器人项目</div>
+        <div class="project-desc">开发波音大型飞机喷涂机器人（工业项目）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scholarships -->
+<section class="section" id="scholarships">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.003 6.003 0 01-5.54 0"/></svg>
+    </span>
+    奖学金
+  </h2>
+  <div class="scholarship-list fade-in">
+    <div class="scholarship-item">
+      <span class="sch-date">2016/10 - 2017/03</span>
+      <div>
+        <div class="sch-name">德国国家奖学金</div>
+        <div class="sch-org">慕尼黑工业大学，德国</div>
+      </div>
+    </div>
+    <div class="scholarship-item">
+      <span class="sch-date">2015/04 - 2015/09</span>
+      <div>
+        <div class="sch-name">德国 DAAD 奖学金</div>
+        <div class="sch-org">凯泽斯劳滕工业大学，德国</div>
+      </div>
+    </div>
+    <div class="scholarship-item">
+      <span class="sch-date">2014/04 - 2014/09</span>
+      <div>
+        <div class="sch-name">德国 DAAD 奖学金</div>
+        <div class="sch-org">凯泽斯劳滕工业大学，德国</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section" id="skills">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L11.42 4.97m-5.1 5.1h13.36m-7.26 10.2l5.1-5.1m0 0l-5.1-5.1m5.1 5.1H5.46"/></svg>
+    </span>
+    专业能力
+  </h2>
+  <div class="skills-grid fade-in">
+    <div class="skill-card">
+      <div class="skill-label">操作系统</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Windows</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label">编程语言</div>
+      <div class="skill-tags">
+        <span class="skill-tag">C/C++</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB/Simulink</span>
+        <span class="skill-tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label">应用平台</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ROS</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">OpenVINO</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">Eclipse Modeling Framework</span>
+        <span class="skill-tag">Acrn Hypervisor</span>
+        <span class="skill-tag">百度 Apollo</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label">IoT 通讯协议</div>
+      <div class="skill-tags">
+        <span class="skill-tag">OPC-UA</span>
+        <span class="skill-tag">DDS</span>
+        <span class="skill-tag">gRPC</span>
+        <span class="skill-tag">Protocol Buffers</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label">应用软件</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Microsoft Office</span>
+        <span class="skill-tag">LaTeX</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Languages -->
+<section class="section" id="languages">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg>
+    </span>
+    语言
+  </h2>
+  <div class="lang-grid fade-in">
+    <div class="lang-card">
+      <div class="lang-name">中文</div>
+      <div class="lang-level">母语</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">德语</div>
+      <div class="lang-level">流利（口语，书写，阅读）</div>
+      <div class="lang-detail">语言证书 DSH3</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">英语</div>
+      <div class="lang-level">流利（口语，书写，阅读）</div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section class="section" id="publications">
+  <h2 class="section-title fade-in">
+    <span class="icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+    </span>
+    学术文章
+  </h2>
+  <div class="publications-list fade-in">
+
+    <div class="pub-item">
+      <div class="pub-num">1</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Kim, Min Jun, Kondak, Konstantin, Lee, Dongheui, Ott, Christian</div>
+        <div class="pub-venue">Oscillation damping control of pendulum-like manipulation platform using moving masses, IFAC-PapersOnLine, Elsevier, 2018</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">2</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Somani, Nikhil, Hu, Biao, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">An efficient and time-optimal trajectory generation approach for waypoints under kinematic constraints and error bounds, IROS 2018</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">3</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">6D pose estimation for flexible production with small lot sizes based on CAD models using Gaussian process implicit surfaces, IROS 2020</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">4</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Deep Hierarchical Rotation Invariance Learning with Exact Geometry Feature Representation for Point Cloud Classification, ICRA 2021</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">5</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Parameterizable and Jerk-Limited Trajectories with Blending for Robot Motion Planning and Spherical Cartesian Waypoints, ICRA 2021</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">6</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Grasp planning for flexible production with small lot sizes based on CAD models using GPIS and Bayesian optimization, CASE 2021</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">7</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Perzylo, Alexander, Knoll, Alois</div>
+        <div class="pub-venue">PCTMA-Net: Point Cloud Transformer with Morphing Atlas-based Point Generation Network for Dense Point Cloud Completion, IROS 2021</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">8</div>
+      <div class="pub-content">
+        <div class="pub-authors">Cao, Hu, Chen, Guang, Li, Zhijun, <strong>Lin, Jianjie</strong>, Knoll, Alois</div>
+        <div class="pub-venue">Residual squeeze-and-excitation network with multi-scale spatial pyramid module for fast robotic grasping detection, ICRA 2021</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">9</div>
+      <div class="pub-content">
+        <div class="pub-authors">Pan, Fengjunjie, <strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Resource Allocation in Software-Defined Vehicles: ILP Model Formulation and Solver Evaluation, ITSC 2022</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">10</div>
+      <div class="pub-content">
+        <div class="pub-authors">Cao, Hu, Chen, Guang, Li, Zhijun, Feng, Qian, <strong>Lin, Jianjie</strong>, Knoll, Alois</div>
+        <div class="pub-venue">Efficient grasp detection network with Gaussian-based grasp representation for robotic manipulation, IEEE/ASME Transactions on Mechatronics, 2022</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">11</div>
+      <div class="pub-content">
+        <div class="pub-authors">Pan, Fengjunjie, <strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Automated Design Space Exploration for Resource Allocation in Software-Defined Vehicles, IEEE IV 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">12</div>
+      <div class="pub-content">
+        <div class="pub-authors">Wen, Long, Rickert, Markus, Pan, Fengjunjie, <strong>Lin, Jianjie</strong>, Knoll, Alois</div>
+        <div class="pub-venue">Bare-Metal vs. Hypervisors and Containers: Performance Evaluation of Virtualization Technologies for Software-Defined Vehicles, IEEE IV 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">13</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Wen, Long, Hu, Yingbai, Knoll, Alois</div>
+        <div class="pub-venue">Robust Point Cloud Registration with Geometry-based Transformation Invariant Descriptor, IROS 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">14</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Knoll, Alois</div>
+        <div class="pub-venue">LieGrasPFormer: Point Transformer-based 6-DOF Grasp Detection with Lie Algebra Grasp Representation, CASE 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">15</div>
+      <div class="pub-content">
+        <div class="pub-authors"><strong>Lin, Jianjie</strong>, Rickert, Markus, Wen, Long, Pan, Fengjunjie, Knoll, Alois</div>
+        <div class="pub-venue">Knowledge-Augmented Anomaly Detection in Small Lot Production for Semantic Temporal Process Data, ETFA 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">16</div>
+      <div class="pub-content">
+        <div class="pub-authors">Liu, Yueyue, Li, Tong, Duan, Jianghua, Wu, Xiaoyu, Wang, Haoyu, Fan, Qigao, <strong>Lin, Jianjie</strong>, Hu, Yingbai</div>
+        <div class="pub-venue">On a hierarchical adaptive and robust inverse dynamic control strategy with experiment for robot manipulators under uncertainties, Control Engineering Practice, 2023</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">17</div>
+      <div class="pub-content">
+        <div class="pub-authors">Pan, Fengjunjie, <strong>Lin, Jianjie</strong>, Rickert, Markus</div>
+        <div class="pub-venue">Automatic Platform Configuration and Software Integration for Software-Defined Vehicles, arXiv 2024</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">18</div>
+      <div class="pub-content">
+        <div class="pub-authors">Wen, Long, Zhang, Yu, Rickert, Markus, <strong>Lin, Jianjie</strong>, Pan, Fengjunjie, Knoll, Alois</div>
+        <div class="pub-venue">Fog vs. Cloud: Model-based Allocation and Deployment of Cloud-native Robotics Applications, ICRA Workshop 2024</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">19</div>
+      <div class="pub-content">
+        <div class="pub-authors">Pan, Fengjunjie, Zolfaghari, Vahid, Wen, Long, Petrovic, Nenad, <strong>Lin, Jianjie</strong>, Knoll, Alois</div>
+        <div class="pub-venue">Generative AI for OCL Constraint Generation: Dataset Collection and LLM Fine-tuning, IEEE ISSE 2024</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">20</div>
+      <div class="pub-content">
+        <div class="pub-authors">Wen, Long, Zhang, Yu, Rickert, Markus, <strong>Lin, Jianjie</strong>, Pan, Fengjunjie, Knoll, Alois</div>
+        <div class="pub-venue">Cloud-native Fog Robotics: Model-based Deployment and Evaluation of Real-time Applications, IEEE Robotics and Automation Letters, 2024</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">21</div>
+      <div class="pub-content">
+        <div class="pub-authors">Wen, Long, Li, Shixin, Zhang, Yu, Huang, Yuhong, <strong>Lin, Jianjie</strong>, Pan, Fengjunjie, Bing, Zhenshan, Knoll, Alois</div>
+        <div class="pub-venue">Gassidy: Gaussian Splatting SLAM in Dynamic Environments, ICRA 2025</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">22</div>
+      <div class="pub-content">
+        <div class="pub-authors">Pan, Fengjunjie, Rickert, Markus, Betz, Tobias, Wen, Long, <strong>Lin, Jianjie</strong>, Petrovic, Nenad, Lienkamp, Markus, Knoll, Alois</div>
+        <div class="pub-venue">Towards Software-Defined Vehicles: From Model-based Engineering to Virtualization-based Deployment, IEEE Access, 2024</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-num">23</div>
+      <div class="pub-content">
+        <div class="pub-authors">Wen, Long, Rickert, Markus, Pan, Fengjunjie, <strong>Lin, Jianjie</strong>, Zhang, Yu, Betz, Tobias, Knoll, Alois</div>
+        <div class="pub-venue">Virtualization &amp; Microservice Architecture for Software-Defined Vehicles: An Evaluation and Exploration, arXiv 2024</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>林建杰 &middot; jianjie.lin@outlook.com &middot; Stuttgart, Germany</p>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Scroll animation with Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
